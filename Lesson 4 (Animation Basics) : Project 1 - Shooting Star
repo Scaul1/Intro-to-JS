@@ -50,7 +50,7 @@ draw = function() {
 
     //shooting star
     fill(255, 242, 0);
-    ellipse(xPos, yPos, 10, 10);
+    image(getImage("space/star"), xPos, yPos, 20, 20);
     
     //moving the star
     xPos+=4;
