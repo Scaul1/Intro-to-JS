@@ -1,3 +1,6 @@
+//colouring in the bunny
+fill(135, 133, 131);
+
 //declaring eye diameter and length of teeth
 var eyeSize = 18;
 var length = 8;
