@@ -1,71 +1,63 @@
-//TIGER ATTACK
-//try to adjust the tiger's position and size so that it can eat the prey
-
-//declaring varaibles
-var x = 200;
-var y = 200;
-var faceSize = 150;
-var eyeSize = 2/15*faceSize;
-var earSize = 6/15*faceSize;
-var noseSize = eyeSize;
-var mouthSize = 1/3*faceSize;
-
-//sky
-background(99, 255, 239);
-
-//prey
-fill(166, 166, 166);
-//body
-ellipse(345, 222, 47, 50);
-//head
-ellipse(345, 195, 40, 40);
-//eyes
-fill(8, 1, 1);
-ellipse(336, 191, 10, 10);
-ellipse(352, 191, 10, 10);
+//declaring variable sizes and positions of bird and worms
+var bodyX = 200;
+var bodyY = 220;
+var bodyW = 85;
+var bodyH = 103;
+var wormW = 10;
+var wormH = 40;
+var wormX = 349;
+var wormY = 169;
+var count = 0;
+var num = random(8);
 
 draw = function() {
-    
-    strokeWeight(6);
-    stroke(3, 0, 0);
-    
-    //ears
-    fill(196, 119, 25);
-    ellipse(x-4/15*faceSize, y-7/15*faceSize, earSize,         earSize);
-    ellipse(x+4/15*faceSize, y-7/15*faceSize, earSize,         earSize);
-    
+    //grass
+    background(28, 150, 53);
+    fill(255, 255, 255);
+    //instructions
+text("How many worms does the bird eat before he is too full?", 10, 20, 400, 20);
+    //bird colour and body
+    fill(66, 72, 237);
+    ellipse(bodyX, bodyY, bodyW, bodyH);
     //face
-    fill(207, 113, 25);
-    ellipse(x, y, faceSize, faceSize);
+    ellipse(bodyX, bodyY-60, bodyW/2, bodyH/2);
+    fill(255, 255, 255);
+    //right eye
+    ellipse(bodyX+8, bodyY-65, bodyW/10, 10);
+    //left eye
+    ellipse(bodyX-8, bodyY-65, bodyW/10, 10);
+    fill(15, 2, 2);
+    //right pupil
+    ellipse(bodyX+8, bodyY-63, bodyW/39, 4);
+    //left pupil
+    ellipse(bodyX-8, bodyY-63, bodyW/39, 4);
+    //beak
+    triangle(bodyX, bodyY-55, bodyX, bodyY-45, bodyX+22, bodyY-48);
+    //right wing
+    triangle(bodyX+40, bodyY-11, bodyX+24, bodyY+4, bodyX+45, bodyY+23);
+    //left wing
+    triangle(bodyX-40, bodyY-11, bodyX-24, bodyY+4, bodyX-45, bodyY+23);
     
-    //eyes
-    fill(8, 0, 0);
-    ellipse(x-2/15*faceSize, y-2/15*faceSize, eyeSize,         eyeSize);
-    ellipse(x+4/15*faceSize, y-2/15*faceSize, eyeSize,         eyeSize);
-   
-    //nose
-    fill(207, 76, 89);
-    ellipse(x+1/10*faceSize, y+1/30*faceSize, noseSize,        noseSize);
+    //worm
+    fill(128, 84, 46);
+    ellipse(wormX, wormY, wormW, wormH);
+    //moving worm
+    wormX = wormX - 1;
     
-    //mouth
-    noFill();
-    ellipse(x+1/10*faceSize, y+8/30*faceSize, mouthSize,       mouthSize);
+    //if the worm reaches the bird
+    if (wormX < 222){
+        //resetting the position of worm
+        wormX = 350;
+        count++;
+        //bird gets fatter
+        bodyW += 10;
+        bodyH += 10;
+    
+        println(num);
+        //if the bird eats the number of birds, it stops growing
+        if (count > num){
+            noLoop();
+        }
+    }
 };
 
-    //grass
-    noStroke();
-    fill(134, 173, 109);
-    rect(0, 272, 413, 400);
-    strokeWeight(20);
-    stroke(23, 122, 39);
-    line(290, 400, 319, 258);
-    line(78, 400, 49, 258);
-    line(91, 400, 83, 258);
-    line(216, 400, 242, 258);
-    line(60, 400, 60, 258);
-    line(29, 400, 7, 258);
-    line(165, 400, 147, 258);
-    line(178, 400, 185, 258);
-    line(138, 400, 119, 258);
-    line(395, 400, 343, 258);
-    line(231, 400, 282, 258);
