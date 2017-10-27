@@ -2,6 +2,11 @@ background(130, 243, 245);
 //instructions for user
 text("Press your mouse or any key on your keyboard!", 5, 20);
 
+//sand
+noStroke();
+fill(227, 190, 148);
+rect(0, 343, 400, 106);
+
 //drawing fish function
 mouseClicked = function() {
     //declaring variables
