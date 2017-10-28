@@ -30,14 +30,21 @@ while(pos<273){
 //fence
 strokeWeight(12);
 stroke(94, 74, 28);
-line(0, 320, 55, 320);
-line(347, 320, 400, 320);
-line(0, 340, 55, 340);
-line(347, 340, 400, 340);
+
+var fence = 320;
+//horizontal lines of fence
+for (var i=0; i< 2; i++){
+    line(0, fence, 55, fence);
+    line (347, fence, 400, fence);
+    fence= fence + 20;
+}
+
 strokeWeight(8);
+//vertical lines before house
 for (var fence1=0; fence1<55; fence1+=20){
     line(fence1, 320, fence1, 355);
 }
+//vertical lines after house
 for (var fence2=347; fence2<400; fence2+=20){
     line(fence2, 320, fence2, 355);
 }
